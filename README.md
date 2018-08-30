@@ -1,5 +1,8 @@
 # docker-compose-elk
 
+这个是破解后的docker镜像
+
+
 
 elk破解教程：
 1） https://www.plaza4me.com/article/20180825223849878
