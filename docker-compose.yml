@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  elasticsearch:
+    image: abcmm/elasticsearch_crake:6.4.0
+    restart: always
+    volumes:
+      - ./es_data:/usr/share/elasticsearch/data
+      - ./es_log:/usr/share/elasticsearch/logs
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  kibana:
+    image: abcmm/kibana_crake:6.4.0
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    restart: always
+    links:
+      - "elasticsearch"
+    ports:
+      - "80:5601"
